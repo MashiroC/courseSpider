@@ -50,25 +50,5 @@ public class SendUtil {
         return sb.toString();
     }
 
-    public static void main(String[] args) {
-        String str = sendGet("http://jwzx.cqupt.congm.in/jwzxtmp/kebiao/kb_stu.php?xh=2017211573");
-        Pattern getTbodyPattern = Pattern.compile("<tbody>(.*?)</tbody>");
-        Matcher getTbodyMatcher = getTbodyPattern.matcher(str);
-        while (getTbodyMatcher.find()) {
-            Matcher matcher = Pattern.compile("<tr>(.*?)</tr>").matcher(getTbodyMatcher.group(1));
-            while (matcher.find()){
-                String rawCourseStr = matcher.group(1);
-                Matcher replaceMatcher = Pattern.compile(">\\s<").matcher(rawCourseStr);
-                rawCourseStr=replaceMatcher.replaceAll("");
-                Matcher courseMatcher = Pattern.compile("<.*?>").matcher(rawCourseStr);
-                rawCourseStr=courseMatcher.replaceAll("_");
-                String[] courseStrArray =rawCourseStr.split("_+");
-                    System.out.println(rawCourseStr);
-                for (int i=0;i<courseStrArray.length;i++){
-                    System.out.println(courseStrArray[i]);
-                }
-                    System.out.println();
-            }
+
         }
-    }
-}

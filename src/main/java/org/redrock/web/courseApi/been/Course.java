@@ -36,6 +36,9 @@ public class Course implements Comparable {
     }
 
     public Course(Course beforeCourse, String[] courseStrArray) {
+        for(int i=0;i<courseStrArray.length;i++){
+            System.out.println(courseStrArray[i]);
+        }
         this.course = beforeCourse.getCourse();
         this.type = beforeCourse.getType();
         this.courseNum = beforeCourse.getCourseNum();
@@ -45,6 +48,9 @@ public class Course implements Comparable {
     }
 
     public Course(String[] courseStrArray) {
+        for(int i=0;i<courseStrArray.length;i++){
+            System.out.println(courseStrArray[i]);
+        }
         String[] courseInfo = courseStrArray[2].split("-");
         this.course = courseInfo[courseInfo.length-1];
         this.courseNum = courseInfo[0];
